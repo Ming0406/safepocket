@@ -1,0 +1,53 @@
+<resources>
+    <!--App theme-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    
+    <style name="AppCard.SecurityItem"></style>
+    <style name="AppCard.SecurityDetail">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="AppCard.Settings">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="contentPadding">0dp</item>
+        <!--<item name="cardPreventCornerOverlap">true</item>
+        <item name="cardUseCompatPadding">true</item>-->
+    </style>
+
+    <!--App View Style-->
+    <style name="text_view_strength_label">
+        <item name="android:textColor">@color/strength_bad</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="image_view_strength_level">
+        <item name="android:background">@color/strength_default</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">5dp</item>
+    </style>
+    <style name="layout_account_detail_item_container">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_treble</item>
+    </style>
+    <style name="text_view_account_detail_label">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="text_view_account_detail_input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="edit_text_account_detail_input" parent="text_view_account_detail_input">
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:inputType">textNoSuggestions|textCapWords</item>
+    </style>
+</resources>

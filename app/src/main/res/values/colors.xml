@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryWithAlpha">#1007ABB3</color>
+    <color name="colorPrimary">@color/md_yellow</color>
+    <color name="touch_effect">#9CCC</color>
+    <color name="strength_default">#BCB9B9</color>
+    <color name="strength_good">#009900</color>
+    <color name="strength_bad">#F50622</color>
+</resources>

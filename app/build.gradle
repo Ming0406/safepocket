@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.1"
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    defaultConfig {
+        applicationId "com.kotlin.safepocket"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def releaseFileName = "safepocket-$versionName-release.apk" as Object
+                    println("test message: $releaseFileName")
+                    output.outputFileName = releaseFileName
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+    google()
+}
+
+ext {
+    supportLibVersion = "27.0.2"
+    espressoVersion = "2.2.2"
+    androidTestVersion = "0.5"
+    hamcrestVersion = "1.3"
+    junitVersion = "4.12"
+}
+
+dependencies {
+    kapt "com.android.databinding:compiler:2.3.2"
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:cardview-v7:${supportLibVersion}"
+    implementation "com.android.support:design:${supportLibVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportLibVersion}"
+
+    // test
+    implementation "com.android.support.test.espresso:espresso-idling-resource:${espressoVersion}"
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2')
+    testImplementation "junit:junit:${junitVersion}"
+    androidTestImplementation 'com.android.support.test:runner:0.2'
+    androidTestImplementation 'com.android.support.test:rules:0.2'
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:multidex:1.0.1'
+
+    // jetbrains
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // https://github.com/tozny/java-aes-crypto
+    implementation 'com.github.tozny:java-aes-crypto:1.1.0'
+
+    // https://github.com/GoSimpleLLC/nbvcxz
+    implementation group: 'me.gosimple', name: 'nbvcxz', version: '1.3.1'
+
+    // https://github.com/nulab/zxcvbn4j
+    implementation 'com.nulab-inc:zxcvbn:1.2.3'
+
+    // https://github.com/aritraroy/PatternLockView
+    implementation 'com.andrognito.patternlockview:patternlockview:1.0.0'
+    implementation 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
+
+    // apache commons
+    implementation 'org.apache.commons:commons-lang3:3.0'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.4'
+
+    // https://github.com/SimpleMobileTools/Simple-Commons
+    implementation 'com.simplemobiletools:commons:3.7.8'
+    implementation 'io.github.hanjoongcho:commons-android:0.3.0'
+
+
+}
